@@ -34,7 +34,7 @@ Clock.prototype._tick = function () {
   }
 
   var elapsed_hours = this.hours;
-  
+
   if (elapsed_hours >= 24) {
     this.hours = 0;
   }
