@@ -14,7 +14,8 @@ var addNumbers = function (sum, numsLeft, completionCallback) {
       addNumbers(sum, numsLeft, completionCallback);
     });
   }
-  if (numsLeft === 0) {
+
+  else {
     completionCallback(sum);
   }
 };
