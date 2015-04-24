@@ -23,6 +23,9 @@ HanoiGame.prototype.isWon = function () {
 };
 
 HanoiGame.prototype.isValidMove = function (startTowerIdx, endTowerIdx) {
+  if (isNaN(startTowerIdx) || isNaN(endTowerIdx)){
+    return false;
+  }
   var endTower = this.stacks[endTowerIdx];
   var startTower = this.stacks[startTowerIdx];
 
