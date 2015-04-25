@@ -13,11 +13,56 @@ Board.prototype.render = function () {
 };
 
 Board.prototype.isWon = function (token) {
+  var won = false;
+  //check diagonals
+  if (checkDiagonals(this.grid, token)) {
+    won = true;
+  }
+
+  if (checkColumns(this.grid, token)) {
+    won = true;
+  }
+
   //check rows
   this.grid.forEach(function (row, idx, arr){
   	if (row.every(function (el) { return el === token;})) {
-  		return true;
-  	} else if ()
-
+  		if (won) {
+        return;
+      } else {
+        won = true;
+      };
+  	}
   });
+
+  return won;
 };
+
+function checkDiagonals (thegrid, token) {
+  if (thegrid[1][1] !== token) {
+    return false;
+  } else if (thegrid[1][1] === token &&
+             thegrid[2][2] === thegrid[0][0] &&
+             thegrid[2][2] === token){
+               return true;
+  } else if (thegrid[1][1] === token &&
+             thegrid[0][2] === thegrid[2][0] &&
+             thegrid[0][2] === token) {
+               return true;
+  } else {
+    return false;
+  }
+};
+
+function checkColumns (thegrid, token) {
+  var won = false
+  [0,1,2].forEach(function (idx) {
+    var column = [];
+    // this part is unfinished, do an every() method on the column
+    // after it has been built.
+  });
+}
+grid = [
+  ["x","",""],
+  ["","o",""],
+  ["","","x"]
+];
