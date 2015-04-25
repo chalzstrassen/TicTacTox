@@ -54,13 +54,19 @@ function checkDiagonals (thegrid, token) {
 };
 
 function checkColumns (thegrid, token) {
-  var won = false
-  [0,1,2].forEach(function (idx) {
+  var won = false;
+  [0,1,2].forEach(function (idx1) {
     var column = [];
-    // this part is unfinished, do an every() method on the column
-    // after it has been built.
+    [0,1,2].forEach(function (idx2) {
+      column.push(thegrid[idx2][idx1]);
+    });
+    if (column.every(function (el) { return el === token })) {
+      won = true;
+    };
   });
+  return won;
 }
+
 grid = [
   ["x","",""],
   ["","o",""],
