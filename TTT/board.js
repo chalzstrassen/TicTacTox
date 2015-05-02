@@ -37,6 +37,10 @@ Board.prototype.isWon = function (token) {
   return won;
 };
 
+Board.prototype.placeMark = function (pos, mark) {
+  this.grid[pos[0]][pos[1]] = mark;
+}
+
 function checkDiagonals (thegrid, token) {
   if (thegrid[1][1] !== token) {
     return false;
@@ -69,6 +73,6 @@ function checkColumns (thegrid, token) {
 
 grid = [
   ["x","",""],
-  ["","o",""],
-  ["","","x"]
+  ["x","o",""],
+  ["x","","x"]
 ];
